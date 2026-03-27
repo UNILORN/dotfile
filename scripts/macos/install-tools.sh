@@ -8,6 +8,7 @@ macOS Tool Installer
 このスクリプトは骨組みだけ用意してあります。
 実装対象の候補:
 - docker command
+- github cli (gh)
 - golang
 - npm, pnpm, n
 - claude code, codex cli, gemini cli

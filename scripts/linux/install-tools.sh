@@ -15,6 +15,7 @@ GENERATIVE_COMMIT_MESSAGE_ALIAS_NAME="${GENERATIVE_COMMIT_MESSAGE_ALIAS_NAME:-gc
 
 TOOL_IDS=(
   docker
+  github_cli
   golang
   nodejs
   pnpm
@@ -25,6 +26,7 @@ TOOL_IDS=(
 
 declare -A TOOL_LABELS=(
   [docker]="docker command"
+  [github_cli]="github cli"
   [golang]="golang"
   [nodejs]="nodejs + npm"
   [pnpm]="pnpm"
@@ -35,6 +37,7 @@ declare -A TOOL_LABELS=(
 
 declare -A TOOL_DESCRIPTIONS=(
   [docker]="Docker CLI と関連パッケージをインストールします。"
+  [github_cli]="GitHub CLI (gh) をインストールします。"
   [golang]="Go toolchain をインストールします。"
   [nodejs]="Node.js と npm をインストールします。"
   [pnpm]="npm 経由で pnpm をグローバルインストールします。"
@@ -235,6 +238,10 @@ ensure_docker() {
   esac
 }
 
+ensure_github_cli() {
+  install_packages gh
+}
+
 ensure_golang() {
   case "$PACKAGE_MANAGER" in
     apt)
@@ -314,6 +321,10 @@ run_install() {
     ensure_docker
   fi
 
+  if [[ "${TOOL_SELECTED[github_cli]}" -eq 1 ]]; then
+    ensure_github_cli
+  fi
+
   if [[ "${TOOL_SELECTED[golang]}" -eq 1 ]]; then
     ensure_golang
   fi
@@ -355,6 +366,7 @@ cat <<EOF
 
 確認候補:
 - docker --version
+- gh --version
 - go version
 - node --version
 - npm --version

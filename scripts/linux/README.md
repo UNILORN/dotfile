@@ -27,6 +27,7 @@ GitHub への公開鍵追加は Web UI で行います。
 対話メニューで選択できるもの:
 
 - docker command
+- github cli (gh)
 - golang
 - nodejs / npm
 - pnpm

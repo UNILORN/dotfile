@@ -106,6 +106,7 @@ GitHub への公開鍵追加は Web UI で行います。詳細は `./scripts/li
 Linux では番号トグル式の対話メニューを開き、以下をまとめてインストールできます。
 
 - `docker` command
+- `github cli` (`gh`)
 - `golang`
 - `nodejs` / `npm`
 - `pnpm`
