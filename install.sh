@@ -43,8 +43,7 @@ case "$command_name" in
         exec "$REPO_ROOT/scripts/linux/setup-fish.sh" "$@"
         ;;
       Darwin)
-        echo "fish セットアップの macOS 自動化は未実装です。" >&2
-        exit 1
+        exec "$REPO_ROOT/scripts/macos/setup-fish.sh" "$@"
         ;;
       *)
         echo "未対応の OS です: $os_name" >&2
